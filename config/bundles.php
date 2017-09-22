@@ -6,4 +6,5 @@ return [
     'Doctrine\Bundle\DoctrineBundle\DoctrineBundle' => ['all' => true],
     'Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle' => ['dev' => true, 'test' => true],
     'Symfony\Bundle\TwigBundle\TwigBundle' => ['all' => true],
+    'Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle' => ['all' => true],
 ];

@@ -18,6 +18,7 @@ class PostFixtures extends Fixture
         $post = new Post();
         $post->setPublishedAt(new \DateTime());
         $post->setSlug('hello-world');
+        $post->setTitle('Hello world');
         $post->setContent(<<<EOL
 # H1
 ## H2
