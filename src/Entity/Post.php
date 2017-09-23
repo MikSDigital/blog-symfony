@@ -47,14 +47,6 @@ class Post
     private $tags;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->tags = new ArrayCollection();
-    }
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
@@ -67,6 +59,14 @@ class Post
      * @ORM\Column(type="text")
      */
     private $content;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     /**
      * @return int

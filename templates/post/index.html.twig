@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'All posts' %}
+
+{% block body %}
+    {% for post in posts %}
+        <div class="post">
+            <h1 class="title">{{ post.title }}</h1>
+            <span>Published {{ post.publishedAt|date }}</span>
+
+            <a href="{{ path('app_post_show', {slug: post.slug}) }}">READ MORE</a>
+        </div>
+    {% endfor %}
+{% endblock %}

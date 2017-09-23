@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title post.title %}
+
+{% block body %}
+    <div class="post">
+        <h1 class="title">{{ post.title }}</h1>
+        <span>Published {{ post.publishedAt|date }}</span>
+        <div class="content">
+            {{ post.content|markdown }}
+        </div>
+    </div>
+{% endblock %}
