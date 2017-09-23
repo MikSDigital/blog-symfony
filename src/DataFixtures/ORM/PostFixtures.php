@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures\ORM;
 
+use App\Entity\Comment;
 use App\Entity\Post;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -26,6 +27,18 @@ class PostFixtures extends Fixture
 Hello world post
 EOL
 );
+
+        $post->addComment(
+            (new Comment())
+                ->setContent('Thanks for this post')
+                ->setDate(new \DateTime())
+        );
+
+        $post->addComment(
+            (new Comment())
+                ->setContent('Another comment')
+                ->setDate(new \DateTime())
+        );
 
         $manager->persist($post);
         $manager->flush();

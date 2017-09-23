@@ -36,17 +36,6 @@ class Post
     private $title;
 
     /**
-     * @var ArrayCollection
-     *
-     * @ORM\ManyToMany(targetEntity="Tag")
-     * @ORM\JoinTable(name="post_tag",
-     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", unique=true)}
-     * )
-     */
-    private $tags;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(type="datetime")
@@ -61,11 +50,30 @@ class Post
     private $content;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Tag")
+     * @ORM\JoinTable(name="post_tag",
+     *      joinColumns={@ORM\JoinColumn(name="post_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", unique=true)}
+     * )
+     */
+    private $tags;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", cascade={"Persist", "remove"})
+     */
+    private $comments;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -184,5 +192,33 @@ class Post
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * @param Comment $commment
+     *
+     * @return $this
+     */
+    public function addComment(Comment $commment)
+    {
+        $this->comments->add($commment);
+
+        return $this;
+    }
+
+    /**
+     * @param Comment $commment
+     */
+    public function removeComment(Comment $commment)
+    {
+        $this->tags->removeElement($commment);
+    }
+
+    /**
+     * @return ArrayCollection|Comment[]
+     */
+    public function getComments(): ArrayCollection
+    {
+        return $this->comments;
     }
 }
