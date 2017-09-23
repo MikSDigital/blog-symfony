@@ -9,4 +9,5 @@ return [
     'Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle' => ['all' => true],
     'Symfony\Bundle\DebugBundle\DebugBundle' => ['dev' => true, 'test' => true],
     'Knp\Bundle\MarkdownBundle\KnpMarkdownBundle' => ['all' => true],
+    'Symfony\Bundle\WebProfilerBundle\WebProfilerBundle' => ['dev' => true, 'test' => true],
 ];

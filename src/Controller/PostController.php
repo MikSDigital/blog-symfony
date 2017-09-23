@@ -31,6 +31,7 @@ class PostController extends Controller
 
     /**
      * @Route("/{slug}")
+     * @Method("GET")
      */
     public function showAction(Post $post): Response
     {
